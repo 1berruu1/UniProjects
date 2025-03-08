@@ -1,1 +1,50 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+
+// This code it will take arguments from the configuration or in case they are missing it will display only negative numbers 
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Integer> negative_list = new ArrayList<Integer>();
+        if (args.length == 0) {
+            System.out.println("No arguments provided in command line. Please enter integers one by one. Enter 0 to stop.");
+            int readValue = 0;
+            do{
+                try {
+                    readValue = Integer.parseInt(input.nextLine());
+                    System.out.println("Read value: " + readValue);
+                    if(readValue < 0){
+                        negative_list.add(readValue);
+                    }
+                } catch (NumberFormatException ex) {
+                    System.out.println("Invalid input");
+                    readValue = 1;
+                }
+            } while (readValue != 0);
+            Collections.sort(negative_list);
+            for(int num : negative_list){
+                System.out.println(num);
+            }
+        }
+        else {
+            for(String arg : args){
+                try{
+                    int value = Integer.parseInt(arg);
+                    if(value < 0){
+                        negative_list.add(value);
+                        }
+
+                } catch (NumberFormatException ex){
+                    System.out.println("Invalid input");
+                }
+            }
+            Collections.sort(negative_list);
+            for(int num : negative_list){
+                System.out.println(num);
+            }
+        }
+    }
+}
 
