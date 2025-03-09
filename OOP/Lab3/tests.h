@@ -1,0 +1,2 @@
+void testPrime();
+void testDistinct();
