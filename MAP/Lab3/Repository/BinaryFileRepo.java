@@ -26,7 +26,7 @@ public class BinaryFileRepo<T extends Entity> extends AbstaractFileRepo<T> {
     protected void loadFile() throws RepositoryException {
         File file = new File(filePath);
         if (!file.exists() || file.length() == 0) {
-            this.items = new ArrayList<>(); // Initialize an empty list if the file does not exist or is empty
+            this.items = new ArrayList<>(); 
             return;
         }
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
