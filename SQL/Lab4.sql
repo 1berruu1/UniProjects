@@ -8,7 +8,7 @@ select * from Tranzactii;
 select * from Rol;
 -------------------------------
 
--------------------FUNCTIONS AND STOCKED PROCEDUES--------------------------------
+-------------------FUNCTIONS AND STORED PROCEDUES--------------------------------
 --Ex1
 
 create or alter procedure AddJoc
