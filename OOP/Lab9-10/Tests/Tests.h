@@ -1,0 +1,12 @@
+//Entity test
+void testConstrDestr();
+void testGetTime();
+void testGetID();
+void testGetPrice();
+//Repo test
+void testGetSize();
+void testAdd();
+//test service
+void testService();
+//Test all
+void testAll();
