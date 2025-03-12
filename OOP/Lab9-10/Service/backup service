@@ -1,0 +1,64 @@
+
+//CONSTRUCTOR DESTRUCTOR
+Service::Service(Repository &repo) : repo(repo) {
+    this->repo.getSize();
+    this->repo.getMaxSize();
+}
+
+
+Service::Service(Repository givenRepo, Repository &repo) : repo(repo){
+    this->repo.setSize(givenRepo.getSize());
+    this->repo.setMaxSize(givenRepo.getMaxSize());
+}
+
+Service::~Service() {
+
+}
+
+
+
+
+
+//OPERATIONS
+
+void Service::deleteBilet(int id) {
+
+}
+
+void Service::updateBilet(int newI, int newTime, int newPrice) {
+
+}
+
+void Service::addBilet(int time, int id, int price) {
+    if(this->repo.getSize() == this->repo.getMaxSize())
+        resize(this->repo);
+    Bilet new_parking(time,id,price);
+    repo.addBilet(new_parking);
+}
+
+Bilet *Service::getAll() {
+    return this->repo.getRepo();
+}
+
+int Service::ReturnCurentSize() {
+    return this->repo.getSize();
+}
+
+
+
+void Service::resize(Repository &repo) {
+    int temp = repo.getSize() * 2;
+    auto* newList = new Bilet[temp];
+    Bilet* bilet = repo.getRepo();
+    for(int i =0;i < repo.getSize(); i++)
+        newList[i] = bilet[i];
+
+    repo.setMaxSize(temp);
+    if(bilet != nullptr){
+        delete[] bilet;
+        bilet = nullptr;
+    }
+    repo.setRepo(newList);
+    repo.setSize(0);
+}
+
